@@ -12,7 +12,7 @@ client.on(ClientEventTypes.ready, () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on(ClientEventTypes.message, msg => {
+client.on(ClientEventTypes.message, (msg) => {
   if (msg.author.bot) {
     return;
   }
@@ -37,15 +37,17 @@ client.on(ClientEventTypes.message, msg => {
     case BogCommands.rec:
       Controllers.handleRecommendation(msg);
       break;
+    case BogCommands.prompt:
+      Controllers.handleWritingPromptReq(msg);
     default:
       return;
   }
 });
 
-client.on(ClientEventTypes.guildMemberAdd, member => {
+client.on(ClientEventTypes.guildMemberAdd, (member) => {
   // Send the message to a designated channel on a server:
   const channel = member.guild.channels.cache.find(
-    ch => ch.name === "member-welcome"
+    (ch) => ch.name === "member-welcome"
   );
   // Do nothing if the channel wasn't found on this server
   if (!channel) return;
@@ -59,6 +61,6 @@ client
   .then(() => {
     console.log(`login successful, bot now listening...`);
   })
-  .catch(error => {
+  .catch((error) => {
     console.error(error);
   });

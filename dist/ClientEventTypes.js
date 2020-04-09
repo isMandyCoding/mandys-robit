@@ -6,7 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 const ClientEventTypes = {
   ready: "ready",
-  message: "message"
+  message: "message",
+  guildMemberAdd: "guildMemberAdd"
 };
 var _default = ClientEventTypes;
 exports.default = _default;

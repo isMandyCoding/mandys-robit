@@ -2,13 +2,14 @@ import MessageContentParser from "./MessageContentParser";
 import { MessageEmbed } from "discord.js";
 import Utilities from "./Utilities";
 import { BogCommands, BogCommandDetails } from "./BogCommands";
+import RedditService from "./RedditService";
 
-const sendInvalidURLMessage = message => {
+const sendInvalidURLMessage = (message) => {
   message.reply(
     "Aplogies, but the URL you've recommended is invalid. Please try again."
   );
 };
-const sendHelpMessage = message => {
+const sendHelpMessage = (message) => {
   const command = MessageContentParser.getCommand(message.content);
   let helpWord = command === BogCommands.help ? "Help" : "Halp";
   let title = helpWord + " With Bog: Available Commands";
@@ -19,10 +20,10 @@ const sendHelpMessage = message => {
     color = "ff0000";
     description =
       `Hello, it appears you need me to do` +
-      ` something for you, but the command you sent was invalid. ` +
-      `Please try using ${
+      ` something for you, but something went wrong. ` +
+      `Please try using \`${
         BogCommandDetails[BogCommands.help].FormatText
-      } for available commands.`;
+      }\` for available commands.`;
   }
   let availableCommands = [];
   if (command === BogCommands.halp || command === BogCommands.help) {
@@ -45,7 +46,7 @@ const sendHelpMessage = message => {
   message.channel.send(embed);
 };
 
-const handleRecommendation = message => {
+const handleRecommendation = (message) => {
   const splittedMessage = message.content.split(" ");
   const recURL = splittedMessage[1];
   const recURLWithoutBrackets = Utilities.trimAngleBrackets(recURL);
@@ -63,10 +64,20 @@ const handleRecommendation = message => {
   sendInvalidURLMessage(message);
 };
 
+const handleWritingPromptReq = (message) => {
+  message.reply("This feature is currently under development. Stay tuned!");
+  // try {
+  //   RedditService.getWritingPrompt();
+  // } catch (error) {
+  //   sendHelpMessage(message);
+  // }
+};
+
 const Controllers = {
   sendInvalidURLMessage,
   sendHelpMessage,
   handleRecommendation,
+  handleWritingPromptReq,
 };
 
 export default Controllers;

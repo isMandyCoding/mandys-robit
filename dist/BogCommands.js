@@ -10,7 +10,8 @@ const BogCommands = {
   ping: "ping",
   help: "help",
   halp: "halp",
-  rec: "rec"
+  rec: "rec",
+  prompt: "prompt"
 };
 exports.BogCommands = BogCommands;
 const BogCommandDetails = {
@@ -33,6 +34,11 @@ const BogCommandDetails = {
     Description: "Sends a message to the designated channel",
     FormatText: "".concat(baseCommand).concat(BogCommands.rec, " [VALID_URL] [RECCOMENDATION_TEXT]"),
     ExampleText: "".concat(baseCommand).concat(BogCommands.rec, " <https://www.google.com/> I love this!")
+  },
+  prompt: {
+    Description: "Returns a random post from the WritingPrompts subreddit.",
+    FormatText: "".concat(baseCommand).concat(BogCommands.prompt),
+    ExampleText: "".concat(baseCommand).concat(BogCommands.prompt)
   }
 };
 exports.BogCommandDetails = BogCommandDetails;

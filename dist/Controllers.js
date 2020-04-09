@@ -15,6 +15,8 @@ var _Utilities = _interopRequireDefault(require("./Utilities"));
 
 var _BogCommands = require("./BogCommands");
 
+var _RedditService = _interopRequireDefault(require("./RedditService"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const sendInvalidURLMessage = message => {
@@ -32,7 +34,7 @@ const sendHelpMessage = message => {
   if (command !== _BogCommands.BogCommands.halp && command !== _BogCommands.BogCommands.help) {
     title = "Error Fulfilling Your Request";
     color = "ff0000";
-    description = "Hello, it appears you need me to do" + " something for you, but the command you sent was invalid. " + "Please try using ".concat(_BogCommands.BogCommandDetails[_BogCommands.BogCommands.help], " for available commands.");
+    description = "Hello, it appears you need me to do" + " something for you, but something went wrong. " + "Please try using `".concat(_BogCommands.BogCommandDetails[_BogCommands.BogCommands.help].FormatText, "` for available commands.");
   }
 
   let availableCommands = [];
@@ -67,10 +69,19 @@ const handleRecommendation = message => {
   sendInvalidURLMessage(message);
 };
 
+const handleWritingPromptReq = message => {
+  try {
+    _RedditService.default.getWritingPrompt();
+  } catch (error) {
+    sendHelpMessage(message);
+  }
+};
+
 const Controllers = {
   sendInvalidURLMessage,
   sendHelpMessage,
-  handleRecommendation
+  handleRecommendation,
+  handleWritingPromptReq
 };
 var _default = Controllers;
 exports.default = _default;
