@@ -21,7 +21,7 @@ const sendHelpMessage = message => {
       `Hello, it appears you need me to do` +
       ` something for you, but the command you sent was invalid. ` +
       `Please try using ${
-        BogCommandDetails[BogCommands.help]
+        BogCommandDetails[BogCommands.help].FormatText
       } for available commands.`;
   }
   let availableCommands = [];
