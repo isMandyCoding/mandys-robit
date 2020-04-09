@@ -69,7 +69,7 @@ client.on(_ClientEventTypes.default.guildMemberAdd, member => {
 
   if (!channel) return; // Send the message, mentioning the member
 
-  channel.send("Welcome to the server, ".concat(member));
+  channel.send("Welcome to the server, ".concat(member, "! \n") + "This is currently just a space for me to have fun and try things \n" + "with this bot. LMK if you have any questions/suggestions and I'll take \n" + "it into consideration. If you wanna make your own bot, please check out \n" + "https://discordpy.readthedocs.io/en/latest/discord.html");
 });
 console.log("logging in...");
 client.login(_Authorization.default.token).then(() => {

@@ -52,7 +52,13 @@ client.on(ClientEventTypes.guildMemberAdd, (member) => {
   // Do nothing if the channel wasn't found on this server
   if (!channel) return;
   // Send the message, mentioning the member
-  channel.send(`Welcome to the server, ${member}`);
+  channel.send(
+    `Welcome to the server, ${member}! \n` +
+      `This is currently just a space for me to have fun and try things \n` +
+      `with this bot. LMK if you have any questions/suggestions and I'll take \n` +
+      `it into consideration. If you wanna make your own bot, please check out \n` +
+      `https://discordpy.readthedocs.io/en/latest/discord.html`
+  );
 });
 
 console.log(`logging in...`);

@@ -70,11 +70,11 @@ const handleRecommendation = message => {
 };
 
 const handleWritingPromptReq = message => {
-  try {
-    _RedditService.default.getWritingPrompt();
-  } catch (error) {
-    sendHelpMessage(message);
-  }
+  message.reply("This feature is currently under development. Stay tuned!"); // try {
+  //   RedditService.getWritingPrompt();
+  // } catch (error) {
+  //   sendHelpMessage(message);
+  // }
 };
 
 const Controllers = {
