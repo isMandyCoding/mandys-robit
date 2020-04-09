@@ -6,6 +6,7 @@ export const BogCommands = {
   halp: "halp",
   rec: "rec",
   prompt: "prompt",
+  compliment: "compliment",
 };
 
 export const BogCommandDetails = {
@@ -33,5 +34,10 @@ export const BogCommandDetails = {
     Description: "Returns a random post from the WritingPrompts subreddit.",
     FormatText: `${baseCommand}${BogCommands.prompt}`,
     ExampleText: `${baseCommand}${BogCommands.prompt}`,
+  },
+  compliment: {
+    Description: "Pays you a compliment.",
+    FormatText: `${baseCommand}${BogCommands.compliment}`,
+    ExampleText: `${baseCommand}${BogCommands.compliment}`,
   },
 };

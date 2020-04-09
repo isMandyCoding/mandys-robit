@@ -3,6 +3,7 @@ import { MessageEmbed } from "discord.js";
 import Utilities from "./Utilities";
 import { BogCommands, BogCommandDetails } from "./BogCommands";
 import RedditService from "./RedditService";
+import axios from "axios";
 
 const sendInvalidURLMessage = (message) => {
   message.reply(
@@ -73,11 +74,23 @@ const handleWritingPromptReq = (message) => {
   // }
 };
 
+const handleCompliments = (message) => {
+  axios
+    .get("https://complimentr.com/api")
+    .then((response) => {
+      message.reply(response.compliment);
+    })
+    .catch(() => {
+      sendHelpMessage(message);
+    });
+};
+
 const Controllers = {
   sendInvalidURLMessage,
   sendHelpMessage,
   handleRecommendation,
   handleWritingPromptReq,
+  handleCompliments,
 };
 
 export default Controllers;

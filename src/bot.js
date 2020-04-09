@@ -39,6 +39,8 @@ client.on(ClientEventTypes.message, (msg) => {
       break;
     case BogCommands.prompt:
       Controllers.handleWritingPromptReq(msg);
+    case BogCommands.compliment:
+      Controllers.handleCompliments(msg);
     default:
       return;
   }
