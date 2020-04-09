@@ -4,7 +4,7 @@
   "description": "test for my first discord bot",
   "main": "/lib/bot.js",
   "scripts": {
-    "start": "./node_modules/.bin/babel src --out-dir lib && node ./lib/bot.js",
+    "start": "node ./lib/bot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mandy",
