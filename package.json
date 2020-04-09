@@ -4,8 +4,9 @@
   "description": "test for my first discord bot",
   "main": "/lib/bot.js",
   "scripts": {
-    "start": "node ./lib/bot.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./dist/bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src/*.js -d dist"
   },
   "author": "Mandy",
   "license": "ISC",
