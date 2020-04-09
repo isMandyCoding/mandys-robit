@@ -78,7 +78,7 @@ const handleCompliments = (message) => {
   axios
     .get("https://complimentr.com/api")
     .then((response) => {
-      message.reply(response.compliment);
+      message.reply(response.data.compliment);
     })
     .catch(() => {
       sendHelpMessage(message);

@@ -17,6 +17,8 @@ var _BogCommands = require("./BogCommands");
 
 var _RedditService = _interopRequireDefault(require("./RedditService"));
 
+var _axios = _interopRequireDefault(require("axios"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const sendInvalidURLMessage = message => {
@@ -77,11 +79,21 @@ const handleWritingPromptReq = message => {
   // }
 };
 
+const handleCompliments = message => {
+  _axios.default.get("https://complimentr.com/api").then(response => {
+    console.log(response);
+    message.reply(response.compliment);
+  }).catch(() => {
+    sendHelpMessage(message);
+  });
+};
+
 const Controllers = {
   sendInvalidURLMessage,
   sendHelpMessage,
   handleRecommendation,
-  handleWritingPromptReq
+  handleWritingPromptReq,
+  handleCompliments
 };
 var _default = Controllers;
 exports.default = _default;

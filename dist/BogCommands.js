@@ -11,7 +11,8 @@ const BogCommands = {
   help: "help",
   halp: "halp",
   rec: "rec",
-  prompt: "prompt"
+  prompt: "prompt",
+  compliment: "compliment"
 };
 exports.BogCommands = BogCommands;
 const BogCommandDetails = {
@@ -39,6 +40,11 @@ const BogCommandDetails = {
     Description: "Returns a random post from the WritingPrompts subreddit.",
     FormatText: "".concat(baseCommand).concat(BogCommands.prompt),
     ExampleText: "".concat(baseCommand).concat(BogCommands.prompt)
+  },
+  compliment: {
+    Description: "Pays you a compliment.",
+    FormatText: "".concat(baseCommand).concat(BogCommands.compliment),
+    ExampleText: "".concat(baseCommand).concat(BogCommands.compliment)
   }
 };
 exports.BogCommandDetails = BogCommandDetails;

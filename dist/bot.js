@@ -59,6 +59,9 @@ client.on(_ClientEventTypes.default.message, msg => {
     case _BogCommands.BogCommands.prompt:
       _Controllers.default.handleWritingPromptReq(msg);
 
+    case _BogCommands.BogCommands.compliment:
+      _Controllers.default.handleCompliments(msg);
+
     default:
       return;
   }
