@@ -15,9 +15,9 @@ var _Utilities = _interopRequireDefault(require("./Utilities"));
 
 var _BogCommands = require("./BogCommands");
 
-var _RedditService = _interopRequireDefault(require("./RedditService"));
-
 var _axios = _interopRequireDefault(require("axios"));
+
+var _RedditService = _interopRequireDefault(require("./RedditService"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -72,17 +72,16 @@ const handleRecommendation = message => {
 };
 
 const handleWritingPromptReq = message => {
-  message.reply("This feature is currently under development. Stay tuned!"); // try {
-  //   RedditService.getWritingPrompt();
-  // } catch (error) {
-  //   sendHelpMessage(message);
-  // }
+  _RedditService.default.getWritingPrompt().then(response => {
+    message.reply(response.title);
+  }).catch(() => {
+    sendHelpMessage(message);
+  });
 };
 
 const handleCompliments = message => {
   _axios.default.get("https://complimentr.com/api").then(response => {
-    console.log(response);
-    message.reply(response.compliment);
+    message.reply(response.data.compliment);
   }).catch(() => {
     sendHelpMessage(message);
   });

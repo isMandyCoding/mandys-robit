@@ -2,8 +2,8 @@ import MessageContentParser from "./MessageContentParser";
 import { MessageEmbed } from "discord.js";
 import Utilities from "./Utilities";
 import { BogCommands, BogCommandDetails } from "./BogCommands";
-import RedditService from "./RedditService";
 import axios from "axios";
+import RedditService from "./RedditService";
 
 const sendInvalidURLMessage = (message) => {
   message.reply(
@@ -66,12 +66,13 @@ const handleRecommendation = (message) => {
 };
 
 const handleWritingPromptReq = (message) => {
-  message.reply("This feature is currently under development. Stay tuned!");
-  // try {
-  //   RedditService.getWritingPrompt();
-  // } catch (error) {
-  //   sendHelpMessage(message);
-  // }
+  RedditService.getWritingPrompt()
+    .then((response) => {
+      message.reply(response.title);
+    })
+    .catch(() => {
+      sendHelpMessage(message);
+    });
 };
 
 const handleCompliments = (message) => {
