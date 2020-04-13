@@ -66,6 +66,11 @@ client.on(_ClientEventTypes.default.message, msg => {
 
       break;
 
+    case _BogCommands.BogCommands.sprint:
+      _Controllers.default.handleStartWritingSprint(msg);
+
+      break;
+
     default:
       return;
   }

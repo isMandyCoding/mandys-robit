@@ -86,12 +86,19 @@ const handleCompliments = (message) => {
     });
 };
 
+const handleStartWritingSprint = (message) => {
+  message.reply(
+    "The writing sprints feature is currently under development. Stay tuned!"
+  );
+};
+
 const Controllers = {
   sendInvalidURLMessage,
   sendHelpMessage,
   handleRecommendation,
   handleWritingPromptReq,
   handleCompliments,
+  handleStartWritingSprint,
 };
 
 export default Controllers;

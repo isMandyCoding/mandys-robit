@@ -7,6 +7,7 @@ export const BogCommands = {
   rec: "rec",
   prompt: "prompt",
   compliment: "compliment",
+  sprint: "sprint",
 };
 
 export const BogCommandDetails = {
@@ -39,5 +40,11 @@ export const BogCommandDetails = {
     Description: "Pays you a compliment.",
     FormatText: `${baseCommand}${BogCommands.compliment}`,
     ExampleText: `${baseCommand}${BogCommands.compliment}`,
+  },
+  sprint: {
+    Description:
+      "Starts a writing sprint that lasts the specified time in the designated channel.",
+    FormatText: `${baseCommand}${BogCommands.sprint} [TIME_IN_MINUTES]`,
+    ExampleText: `${baseCommand}${BogCommands.sprint} 5`,
   },
 };

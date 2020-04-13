@@ -12,7 +12,8 @@ const BogCommands = {
   halp: "halp",
   rec: "rec",
   prompt: "prompt",
-  compliment: "compliment"
+  compliment: "compliment",
+  sprint: "sprint"
 };
 exports.BogCommands = BogCommands;
 const BogCommandDetails = {
@@ -45,6 +46,11 @@ const BogCommandDetails = {
     Description: "Pays you a compliment.",
     FormatText: "".concat(baseCommand).concat(BogCommands.compliment),
     ExampleText: "".concat(baseCommand).concat(BogCommands.compliment)
+  },
+  sprint: {
+    Description: "Starts a writing sprint that lasts the specified time in the designated channel.",
+    FormatText: "".concat(baseCommand).concat(BogCommands.sprint, " [TIME_IN_MINUTES]"),
+    ExampleText: "".concat(baseCommand).concat(BogCommands.sprint, " 5")
   }
 };
 exports.BogCommandDetails = BogCommandDetails;
